@@ -7,9 +7,8 @@ export const POST = async () => {
   await saveSession({
     refresh_token: session.refresh_token as string,
     token_type: session.token_type as string,
-    // iron-session will compute the maxAge from the ttl == 0
-    expires_in: 0,
-    access_token: 'invalid_token',
+    access_token: session.access_token as string,
+    expires_in: 1,
   });
 
   return Response.redirect(config.BASE_URL);

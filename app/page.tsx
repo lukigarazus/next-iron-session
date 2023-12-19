@@ -3,6 +3,7 @@ import { getPublicSession } from './lib/sessionUtils';
 import ClientSideComponentOnlyForLoggedInPeople from './ui/ClientSideComponentOnlyForLoggedInPeople';
 import ArchivesAdmin from './ui/ArchivesAdmin';
 import RevokeTokenForm from './ui/RevokeTokenForm';
+import ExpireTokenForm from './ui/ExpireTokenForm';
 
 const Page = async () => {
   const publicSession = await getPublicSession();
@@ -21,6 +22,7 @@ const Page = async () => {
       <span>Home page, only for the logged in people</span>
       <Link href="/logout">Go to logout</Link>
       <RevokeTokenForm />
+      <ExpireTokenForm />
       <ClientSideComponentOnlyForLoggedInPeople />
       <ArchivesAdmin />
     </div>

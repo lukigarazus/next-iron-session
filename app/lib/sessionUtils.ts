@@ -61,10 +61,7 @@ export async function saveSession({
 }) {
   const session = await getIronSession<ServerSessionData>(cookies(), {
     ...sessionOptions,
-    cookieOptions: {
-      ...(sessionOptions.cookieOptions || {}),
-      ttl: expires_in,
-    },
+    ttl: expires_in * 1.5, // give the user a bit of time to stumble upon refresh token before we get rid of the cookie
   });
 
   session.access_token = access_token;
